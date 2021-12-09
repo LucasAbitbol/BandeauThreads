@@ -24,11 +24,13 @@ public class MonThread extends Thread {
 
     
     public void run() {
+        synchronized(bandeau) {
         for (ScenarioElement element : mesElements) {
             for (int repeats = 0; repeats < element.repeats; repeats++) {
                 element.effect.playOn(bandeau);            
             }
         }
+    }
     }
     
 
